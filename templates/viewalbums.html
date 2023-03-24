@@ -1,0 +1,14 @@
+
+{% if photos %}
+<title>Pictures in this Album</title>
+<h2>Here are all photos under the album you clicked</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li>{{photo[2]}}<br>
+        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+    {% endfor %}
+    </ul>
+    <a href='/'>Home</a>
+
+{% endif %}

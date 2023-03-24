@@ -1,0 +1,12 @@
+<form method="post" action="{{ url_for('commentsearch') }}">
+    <label for="comment">Enter the exact comment you want to search for:</label>
+    <input type="text" name="comment" /><br />
+    <label for="search">Search</label>
+    <input type="submit" name="search" /><br />
+</form>
+
+{% for user in users %}
+            <li>{{user}}</li>
+        {% endfor %}
+
+        <a href='/'>Home</a>

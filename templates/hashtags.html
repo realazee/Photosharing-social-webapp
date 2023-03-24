@@ -1,0 +1,34 @@
+<!--Include search function, and list of most popular hashtags.
+The list displays the most popular, but does not need to be hyperlinks.
+We can just use a search box.
+
+For viewing a user's own tags we may need hyperlinks.-->
+
+<h2>Search for hashtags to view photos here:</h2>
+<div id="content">
+    <form method="post" action="{{ url_for('hashtags') }}">
+        <label for="tagsearch">Enter the hashtag(s) you want to view all photos under, seperated by spaces:</label>
+        <input type="text" name="tagsearch" /><br />
+        <label for="viewtag">View Hashtag</label>
+        <input type="submit" name="viewtag" /><br />
+    </form>
+ </div>
+
+ 
+
+<h2>Here are all hashtags:</h2>
+        <ul>
+        {% for tag in hashtags %}
+            <li>{{tag[1]}}</li>
+        {% endfor %}
+        </ul>
+
+<h2>Here are the top 3 hashtags</h2>
+        <ul>
+        {% for tag in top3 %}
+            <li>{{tag[1]}}</li>
+        {% endfor %}
+        </ul>
+
+
+<a href='/'>Home</a>

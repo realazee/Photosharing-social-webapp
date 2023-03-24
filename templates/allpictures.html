@@ -1,0 +1,13 @@
+<title>All Pictures</title>
+<h2>Here are all photos</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li>{{photo[2]}}<br>
+        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+        <a href="{{ url_for('likepicture', picture_id=photo[1]) }}">Like picture</a>
+        <a href="{{ url_for('singlepicture', picture_id=photo[1]) }}">View photo details</a>
+        
+    {% endfor %}
+    </ul>
+    <a href='/'>Home</a>

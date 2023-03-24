@@ -1,0 +1,25 @@
+<!-- author Aaron Zheng (aaronz@bu.edu) -->
+<!doctype html>
+<body>
+    <div class="title">
+        <h1>Friends</h1>
+    </div>
+    <div id="content">
+        <form method="post" action="{{ url_for('friends') }}">
+            <label for="friendEmail">Enter the email of the user you want to add as a friend </label>
+            <input type="text" name="friendEmail" /><br />
+            <label for="addFriend">Add Friend</label>
+            <input type="submit" name="addFriend" /><br />
+        </form>
+     </div>
+
+
+     <h2>Here are your friends:</h2>
+        <ul>
+        {% for friend in friends %}
+            <li>{{friend[1]}}</li>
+        {% endfor %}
+        </ul>
+
+</body>
+<a href='/'>Home</a>

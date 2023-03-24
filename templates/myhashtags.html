@@ -1,0 +1,20 @@
+<h2>Search for hashtags to view your photos here:</h2>
+<div id="content">
+    <form method="post" action="{{ url_for('hashtags') }}">
+        <label for="tagsearch">Enter the hashtag(s) you want to view your own photos under, seperated by spaces:</label>
+        <input type="text" name="tagsearch" /><br />
+        <label for="viewtag">View Hashtag</label>
+        <input type="submit" name="viewtag" /><br />
+    </form>
+ </div>
+
+ 
+
+<h2>Here are your hashtags:</h2>
+        <ul>
+        {% for tag in hashtags %}
+            <li>{{tag[1]}}</li>
+        {% endfor %}
+        </ul>
+
+        <a href='/'>Home</a>

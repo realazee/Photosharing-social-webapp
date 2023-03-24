@@ -1,0 +1,11 @@
+<h2>Here are your albums:</h2>
+        <ul>
+        {% for album in albums %}
+            <li>{{album[1]}}</li>
+            <a href="{{ url_for('deletealbum', album_id=album[0]) }}">Delete Album</a>
+            <a href="{{ url_for('viewalbums', album_id=album[0]) }}">View Album</a>
+        {% endfor %}
+        </ul>
+
+
+<a href='/'>Home</a>

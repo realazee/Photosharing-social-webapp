@@ -1,0 +1,23 @@
+{% for photo in photos %}
+
+        <li>{{photo[2]}}<br>
+        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+   
+    <h2>Comments</h2>
+    <div id="content">
+        <form method="post" action="{{ url_for('singlepicture', picture_id=photo[1]) }}">
+            <label for="comment">Leave your comment </label>
+            <input type="text" name="comment" /><br />
+            <label for="leavecomment">Submit</label>
+            <input type="submit" name="leavecomment" /><br />
+        </form>
+     </div>
+    <ul>
+    {% for comment in comments %}
+        <li>User: {{comment[0]}}: {{comment[1]}}</li>
+    {% endfor %}
+    Likes: {{likecount}}
+
+    {% endfor %}
+    </ul>
+    <a href='/'>Home</a>
